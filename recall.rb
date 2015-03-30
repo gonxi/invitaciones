@@ -21,7 +21,7 @@ get '/' do
 end
 
 post '/' do
-	n = Note.new
+	n = Event.new
 	n.content = params[:content]
 	n.created_at = Time.now
 	n.updated_at = Time.now
