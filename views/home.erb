@@ -1,25 +1,34 @@
 
 <section id="post">
 	<form action="/" method="post">
-    <input type ="text" name="title" placeholder="Escribe el t´itulo del evento&hellip;">
+    <p>
+    Titulo:
+    <input type ="text" name="title" placeholder="Escribe el titulo del evento&hellip;">
+    Fecha:
     <input type="text" id="datepicker" name="date_event">
-		<textarea name="content" placeholder="you note&hellip;"></textarea>
-		<input type="submit" value="Introducir Evento!">
+    </p>
+    <p>
+    Descripci&oacuten:
+    </p>
+    <p>
+      <textarea style="width: 460px;" name="content" placeholder="Descripcion&hellip;"></textarea>
+    </p>
+    <input type="submit" value="Introducir Evento!">
 	</form>
 </section>
 
 <% @events.each do |event| %>
   <article>
     <p> 
-      <%= event.title %> 
+     <h3> <%= event.title %> </h3>
     </p>
     <p>
-      <%= event.content %>
+      Descripci&oacuten: <%= event.content %>
       <span><a href="/<%= event.id %>">[edit]</a></span>
     </p>
     <p class="links">
       <a href="/<%= event.id %>/complete">&#8623;</a>
     </p>
-    <p class="meta">Created: <%= event.created_at %></p>
+    <p class="meta">Fecha del evento: <%= event.date_event %></p>
   </article>
 <% end %>

@@ -40,13 +40,14 @@ end
 
 put '/:id' do
   e = Event.get params[:id]
-  e.title = paramas[:title]
-  e.date = paramas[:date_event]
+  e.title = params[:title]
+  e.date_event = params[:date_event]
   e.content = params[:content]
   e.updated_at = Time.now
   e.save
   redirect '/'
 end
+
 get '/:id/delete' do
   @note = Event.get params[:id]
   @title = "Confirma que quiere eiliminar el evento ##{params[:id]}"
@@ -59,10 +60,3 @@ delete '/:id' do
   redirect '/'
 end
 
-get '/:id/complete' do
-  e = Event.get params[:id]
-  e.complete = n.complete ? 0 : 1 # flip it
-  e.updated_at = Time.now
-  e.save
-  redirect '/'
-end

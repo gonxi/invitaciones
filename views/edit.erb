@@ -1,13 +1,14 @@
-<% if @note %>
-	<form action="/<%=  @note.id %>" method="post" id="edit">
+<% if @event %>
+	<form action="/<%=  @event.id %>" method="post" id="edit">
 		<input type="hidden" name="_method" value="put">
-		<textarea name="content"> <%= @note.content %></textarea>
-		<input type="checkbox" name="complete" <%= "checked" if @note.complete %>>
+		<input  type ="text" name="title" value="<%= @event.title %>">
+		<input type="text" id="datepicker" name="date_event" value="<%= @event.date_event %>">
+		<textarea name="content"> <%= @event.content %></textarea>
 		<input type="submit">
 	</form>	
-	<p><a href="/<%= @note.id %>/delete" >Delete</a></p>
+	<p><a href="/<%= @event.id %>/delete" >Delete</a></p>
 <% else %>
-	<p>Note nor found.</P>
+	<p>Este evento no existe.</P>
 <% end %>
 
 
