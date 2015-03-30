@@ -1,19 +1,25 @@
+
 <section id="post">
 	<form action="/" method="post">
+    <input type ="text" name="title" placeholder="Escribe el t´itulo del evento&hellip;">
+    <input type="text" id="datepicker" name="date_event">
 		<textarea name="content" placeholder="you note&hellip;"></textarea>
-		<input type="submit" value="Take Note!">
+		<input type="submit" value="Introducir Evento!">
 	</form>
 </section>
 
-<% @notes.each do |note| %>
-  <article <%= 'class="complete"' if note.complete %>>
+<% @events.each do |event| %>
+  <article>
+    <p> 
+      <%= event.title %> 
+    </p>
     <p>
-      <%= note.content %>
-      <span><a href="/<%= note.id %>">[edit]</a></span>
+      <%= event.content %>
+      <span><a href="/<%= event.id %>">[edit]</a></span>
     </p>
     <p class="links">
-      <a href="/<%= note.id %>/complete">&#8623;</a>
+      <a href="/<%= event.id %>/complete">&#8623;</a>
     </p>
-    <p class="meta">Created: <%= note.created_at %></p>
+    <p class="meta">Created: <%= event.created_at %></p>
   </article>
 <% end %>

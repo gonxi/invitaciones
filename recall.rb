@@ -16,7 +16,7 @@ end
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 
-	@notes = Event.all :order => :id.desc
+	@events = Event.all :order => :id.desc
 	@title = 'Todos los Eventos'
 	erb :home
 end
@@ -25,7 +25,7 @@ post '/' do
 	e = Event.new
 	e.title = params[:title]
 	e.content = params[:content]
-	e.date = params [:date_event]
+	e.date_event = params[:date_event]
 	e.created_at = Time.now
 	e.updated_at = Time.now
 	e.save
@@ -33,7 +33,7 @@ post '/' do
 end
 
 get '/:id' do
-	@note = Event.get params[:id]
+	@event = Event.get params[:id]
 	@title = "Editar evento ##{params[:id]}"
 	erb :edit
 end
