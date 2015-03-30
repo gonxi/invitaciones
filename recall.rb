@@ -21,8 +21,8 @@ get '/' do
 end
 
 post '/' do
-	n= Note.new
-	n.content = params[:contetnt]
+	n = Note.new
+	n.content = params[:content]
 	n.created_at = Time.now
 	n.updated_at = Time.now
 	n.save
@@ -48,8 +48,17 @@ get '/:id/delete' do
   @title = "Confirm deletion of note ##{params[:id]}"
   erb :delete
 end
+
 delete '/:id' do
   n = Note.get params[:id]
   n.destroy
+  redirect '/'
+end
+
+get '/:id/complete' do
+  n = Note.get params[:id]
+  n.complete = n.complete ? 0 : 1 # flip it
+  n.updated_at = Time.now
+  n.save
   redirect '/'
 end
