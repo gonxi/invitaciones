@@ -1,10 +1,13 @@
 
 <section id="post">
+  <div class="jumbotron">
 	<form action="/" method="post">
     <p>
-    Titulo:
+    Evento:
     <input type ="text" name="title" placeholder="Escribe el titulo del evento&hellip;">
-    Fecha:
+    </p>
+    <p>
+    Fecha: 
     <input type="text" id="datepicker" name="date_event">
     </p>
     <p>
@@ -15,6 +18,7 @@
     </p>
     <button type="submit" class="btn btn-lg btn-primary">Crear Evento</button>
 	</form>
+</div>
 </section>
 
 <% @events.each do |event| %>
