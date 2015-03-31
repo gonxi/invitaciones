@@ -1,7 +1,11 @@
 <% if @event %>
 <div class="jumbotron">
-	<form action="/<%=  @event.id %>" method="post" id="edit">
+	<form action="/<%=  @event.id %>/invite" method="post" id="invite">
 		<input type="hidden" name="_method" value="put">
+		<p>
+		Nombre:
+		<input  type ="text" name="name_invited">
+	    </p>
 		<p>
 		Email:
 		<input  type ="text" name="email">
@@ -20,10 +24,24 @@
 		<p>
 		<textarea disabled name="content"> <%= @event.content %></textarea>
 		</p>
-		<a style="color:#FFF;" class="btn btn-lg btn-success" > Enviar</a>
+		<button type="submit" style="color:#FFF;" class="btn btn-lg btn-success" > Enviar </button>
 		<a class="btn btn-lg btn-danger"  style ="color:#FFF;" href="/" > Cancelar</a>
 	</diV>
 	</form>	
+
+	<% @invites.each do |invite| %>
+  		<article>
+    		<p> 
+    		 <h3> <%= invite.name_invited %> </h3>
+    		</p>
+    		<p>
+    			<%= invite.email %>
+    		</p>
+    		  <a style="color:#FFF;" class="btn btn-lg btn-danger"> Eliminar</a>
+    		</p>
+ 		 </article>	
+ 	<% end %>
+	
 	<p></p>
 <% else %>
 	<p>Este evento no existe.</P>
