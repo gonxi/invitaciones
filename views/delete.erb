@@ -1,9 +1,9 @@
 <% if @event %>
   <p>Seguro que deseas eliminar el evento: <em>"<%= @event.title %>"</em>?</p>
-  <form action="/<%= @event.id %>" method="post">
+  <form action="/events/<%= @event.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button class="btn btn-lg btn-danger" type="submit">Si, Eliminar!</button>
-    <a class="btn btn-lg btn-primary"  style ="color:#FFF;"  href="/<%= @event.id %>">Cancelar</a>
+    <a class="btn btn-lg btn-primary"  style ="color:#FFF;"  href="/events/<%= @event.id %>">Cancelar</a>
   </form>
 <% else %>
   <p>Evento NO encontrado.</p>

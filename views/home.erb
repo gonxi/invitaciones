@@ -1,26 +1,4 @@
 
-<section id="post">
-  <div class="jumbotron">
-	<form action="/" method="post">
-    <p>
-    Evento:
-    <input type ="text" name="title" placeholder="Escribe el titulo del evento&hellip;">
-    </p>
-    <p>
-    Fecha: 
-    <input type="text" id="datepicker" name="date_event">
-    </p>
-    <p>
-    Descripci&oacuten:
-    </p>
-    <p>
-      <textarea name="content" placeholder="Descripcion&hellip;"></textarea>
-    </p>
-    <button type="submit" class="btn btn-lg btn-primary">Crear Evento</button>
-	</form>
-</div>
-</section>
-
 <% @events.each do |event| %>
   <article>
     <p> 
@@ -30,12 +8,12 @@
       Descripci&oacuten: <%= event.content %>
     </p>
     <p class="links">
-      <a href="/<%= event.id %>/complete">&#8623;</a>
+      <a href="/<%= event.id %>/complete"><%=  %></a>
     </p>
     <p class="meta">Fecha del evento: <%= event.date_event %></p>
     <p>
-      <a style="color:#FFF;"class="btn btn-lg btn-success" href="/<%= event.id %>/invite" >Invitar</a>
-      <a style="color:#FFF;" class="btn btn-lg btn-primary" href="/<%= event.id %>">Editar</a>
+      <a style="color:#FFF;"class="btn btn-lg btn-success" href="/events/<%= event.id %>/invite" >Invitar</a>
+      <a style="color:#FFF;" class="btn btn-lg btn-primary" href="/events/<%= event.id %>">Editar</a>
     </p>
   </article>
 <% end %>

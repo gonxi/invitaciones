@@ -1,6 +1,6 @@
 <% if @event %>
 <div class="jumbotron">
-	<form action="/<%=  @event.id %>/invite" method="post" id="invite">
+	<form action="/events/<%=  @event.id %>/invite" method="post" id="invite">
 		<input type="hidden" name="_method" value="put">
 		<p>
 		Nombre:
@@ -25,7 +25,7 @@
 		<textarea disabled name="content"> <%= @event.content %></textarea>
 		</p>
 		<button type="submit" style="color:#FFF;" class="btn btn-lg btn-success" > Enviar </button>
-		<a class="btn btn-lg btn-danger"  style ="color:#FFF;" href="/" > Cancelar</a>
+		<a class="btn btn-lg btn-primary"  style ="color:#FFF;" href="/events" > Cancelar</a>
 	</diV>
 	</form>	
 

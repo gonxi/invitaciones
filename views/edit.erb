@@ -1,6 +1,6 @@
 <% if @event %>
 <div class="jumbotron">
-	<form action="/<%=  @event.id %>" method="post" id="edit">
+	<form action="/events/<%=  @event.id %>" method="post" id="edit">
 		<input type="hidden" name="_method" value="put">
 		<p>
 		Evento:
@@ -17,8 +17,8 @@
 		<textarea name="content"> <%= @event.content %></textarea>
 		</p>
 		<button type="submit" class="btn btn-lg btn-success">Guardar</button>
-		<a class="btn btn-lg btn-primary"  style ="color:#FFF;" href="/" > Cancelar</button>
-		<a class="btn btn-lg btn-danger"  style ="color:#FFF;" href="/<%= @event.id %>/delete" >Eliminar</a>
+		<a class="btn btn-lg btn-primary"  style ="color:#FFF;" href="/events" > Cancelar</button>
+		<a class="btn btn-lg btn-danger"  style ="color:#FFF;" href="/events/<%= @event.id %>/delete" >Eliminar</a>
 		
 	</diV>
 	</form>	
