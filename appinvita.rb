@@ -13,7 +13,16 @@ class Event
 	property :updated_at, DateTime
 end
 
+class Invite
+	include DataMapper::Resource
+	property :id, Serial
+	property :id_event, Text
+	property :email, Text, :required => true 
+	property :created_at, DateTime
+end
+
 DataMapper.finalize.auto_upgrade!
+
 
 get '/' do 
 	@events = Event.all :order => :id.desc
@@ -29,7 +38,7 @@ post '/' do
 	e.created_at = Time.now
 	e.updated_at = Time.now
 	e.save
-	redirect '/<%= event.id %>'
+	redirect '/'
 end
 
 get '/:id' do
@@ -61,6 +70,16 @@ delete '/:id' do
 end
 
 get '/:id/invite' do
+	@title = "HAcer la invitacion a un evento"
+	@event = Event.get params[:id]
+	erb :invite
+end
+
+post '/:id/invite' do
+	i = Invite.new
+	i.id_event = params[:id_event]
+	i.email = params[:email]
+	i.created_at = Time.Now
 end
 
 
