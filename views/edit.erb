@@ -1,20 +1,28 @@
 <% if @event %>
+<div class="jumbotron">
 	<form action="/<%=  @event.id %>" method="post" id="edit">
 		<input type="hidden" name="_method" value="put">
 		<p>
 		Evento:
 		<input  type ="text" name="title" value="<%= @event.title %>">
+	    </p>
+	    <p>
 		Fecha: 
 		<input type="text" id="datepicker" name="date_event" value="<%= @event.date_event %>">
+		</p>
 		<p>
 			Descipci&oacuten:
 		</p>
-		<textarea name="content"> <%= @event.content %></textarea>
 		<p>
-		<button type="submit" class="btn btn-lg btn-primary">Modificar</button>
+		<textarea name="content"> <%= @event.content %></textarea>
 		</p>
+		<button type="submit" class="btn btn-lg btn-success">Modificar</button>
+		<a class="btn btn-lg btn-primary"  style ="color:#FFF;" href="/" > Cancelar</button>
+		<a class="btn btn-lg btn-danger"  style ="color:#FFF;" href="/<%= @event.id %>/delete" >Eliminar</a>
+		
+	</diV>
 	</form>	
-	<p><a href="/<%= @event.id %>/delete" >Delete</a></p>
+	<p></p>
 <% else %>
 	<p>Este evento no existe.</P>
 <% end %>

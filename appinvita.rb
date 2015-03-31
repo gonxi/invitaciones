@@ -29,7 +29,7 @@ post '/' do
 	e.created_at = Time.now
 	e.updated_at = Time.now
 	e.save
-	redirect '/'
+	redirect '/<%= event.id %>'
 end
 
 get '/:id' do
@@ -49,7 +49,7 @@ put '/:id' do
 end
 
 get '/:id/delete' do
-  @note = Event.get params[:id]
+  @event = Event.get params[:id]
   @title = "Confirma que quiere eiliminar el evento ##{params[:id]}"
   erb :delete
 end
@@ -59,4 +59,8 @@ delete '/:id' do
   e.destroy
   redirect '/'
 end
+
+get '/:id/invite' do
+end
+
 

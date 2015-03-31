@@ -14,7 +14,7 @@
     Descripci&oacuten:
     </p>
     <p>
-      <textarea style="width: 460px;" name="content" placeholder="Descripcion&hellip;"></textarea>
+      <textarea name="content" placeholder="Descripcion&hellip;"></textarea>
     </p>
     <button type="submit" class="btn btn-lg btn-primary">Crear Evento</button>
 	</form>
@@ -28,11 +28,14 @@
     </p>
     <p>
       Descripci&oacuten: <%= event.content %>
-      <span><a href="/<%= event.id %>">[edit]</a></span>
     </p>
     <p class="links">
       <a href="/<%= event.id %>/complete">&#8623;</a>
     </p>
     <p class="meta">Fecha del evento: <%= event.date_event %></p>
+    <p>
+      <a style="color:#FFF;"class="btn btn-lg btn-success">Invitar</a>
+      <a style="color:#FFF;" class="btn btn-lg btn-primary" href="/<%= event.id %>">Editar</a>
+    </p>
   </article>
 <% end %>
