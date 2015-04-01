@@ -13,6 +13,11 @@ class Event
 	property :date_event, DateTime, :required => true
 	property :created_at, DateTime
 	property :updated_at, DateTime
+
+ def formated_event_date 
+ 	@date_event.strftime('%d/%m/%Y')
+ end
+
 end
 
 class Invite
