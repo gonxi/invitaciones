@@ -15,6 +15,13 @@ class Event
 	property :created_at, DateTime
 	property :updated_at, DateTime
 
+<<<<<<< HEAD
+=======
+ def formated_event_date 
+ 	@date_event.strftime('%d/%m/%Y')
+ end
+
+>>>>>>> master
 end
 
 
