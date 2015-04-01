@@ -24,6 +24,17 @@ class Invite
 	property :created_at, DateTime
 end
 
+class Settingsail
+	include DataMapper::Resource
+	property :id_config, Serial
+	property :smtp, Text, :required => true
+	property :port, Text, :required => true
+	property :user_name, Text, :required => true
+	property :password, Text, :required => true
+	property :authentication, Text, :required =>true
+	property :enable_starttls_auto, Boolean
+end
+
 DataMapper.finalize.auto_upgrade!
 
 
@@ -116,4 +127,7 @@ post '/events/:id/invite' do
 
 end
 
+#****************SETTINGS MAIL********************
+ get '/emailsettings' do
+ end
 
