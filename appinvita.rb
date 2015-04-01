@@ -152,8 +152,9 @@ end
 
 helpers do 	
 
-	def formated_event_date (date_event)
+	def formated_event_date (date)
 
+		@date_event = @event.date_event
 		@date_event.strftime('%m/%d/%Y')
 
 	end
