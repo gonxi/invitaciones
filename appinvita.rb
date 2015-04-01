@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 
+
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/appevents.db")
 
 #**********CLASES BBDD****************
@@ -14,11 +15,15 @@ class Event
 	property :created_at, DateTime
 	property :updated_at, DateTime
 
+<<<<<<< HEAD
+=======
  def formated_event_date 
  	@date_event.strftime('%d/%m/%Y')
  end
 
+>>>>>>> master
 end
+
 
 class Invite
 	include DataMapper::Resource
@@ -29,7 +34,7 @@ class Invite
 	property :created_at, DateTime
 end
 
-class Settingsail
+class SettingsMail
 	include DataMapper::Resource
 	property :id_config, Serial
 	property :smtp, Text, :required => true
@@ -133,6 +138,32 @@ post '/events/:id/invite' do
 end
 
 #****************SETTINGS MAIL********************
- get '/emailsettings' do
+ get '/settings' do
+ 	@settings = SettingsMail.get params[:id_config]
+ 	@title = "Configuracion del servidor de correo"
+ 	erb :settings
  end
 
+ post '/settings' do
+ 	s= SettingsMail.new
+ 	s.smtp = params[:smtp]
+ 	s.port = params[:port]
+ 	s.user_name = params[:user_name]
+ 	s.password = params[:password]
+ 	s.authentication = params[:auth]
+ 	s.enable_starttls_auto = params[:auto]
+ 	s.save
+ 	redirect '/settings'
+ end
+
+
+helpers do 	
+
+	def formated_event_date (date)
+
+		@date_event = @event.date_event
+		@date_event.strftime('%m/%d/%Y')
+
+	end
+	
+end
