@@ -1,0 +1,49 @@
+<% if @event %>
+<div class="jumbotron">
+	<form action="/events/<%=  @event.id %>/invite" method="post" id="invite">
+		<p>
+		Nombre:
+		<input  type ="text" name="name_invited">
+	    </p>
+		<p>
+		Email:
+		<input  type ="text" name="email">
+	    </p>
+		<p>
+		Evento:
+		<input disabled type ="text" name="title" value="<%= @event.title %>">
+	    </p>
+	    <p>
+		Fecha: 
+		<input disabled type="text" id="datepicker" name="date_event" value="<%= @event.date_event %>">
+		</p>
+		<p>
+			Descipci&oacuten:
+		</p>
+		<p>
+		<textarea disabled name="content"> <%= @event.content %></textarea>
+		</p>
+		<button type="submit" style="color:#FFF;" class="btn btn-lg btn-success" > Enviar </button>
+		<a class="btn btn-lg btn-primary"  style ="color:#FFF;" href="/events" > Cancelar</a>
+	</diV>
+	</form>	
+
+	<% @invites.each do |invite| %>
+  		<article>
+    		<p> 
+    		 <h3> <%= invite.name_invited %> </h3>
+    		</p>
+    		<p>
+    			<%= invite.email %>
+    		</p>
+    		  <a style="color:#FFF;" class="btn btn-lg btn-danger"> Eliminar</a>
+    		</p>
+ 		 </article>	
+ 	<% end %>
+	
+	<p></p>
+<% else %>
+	<p>Este evento no existe.</P>
+<% end %>
+
+

@@ -1,19 +1,19 @@
-<section id="post">
-	<form action="/" method="post">
-		<textarea name="content" placeholder="you note&hellip;"></textarea>
-		<input type="submit" value="Take Note!">
-	</form>
-</section>
 
-<% @notes.each do |note| %>
-  <article <%= 'class="complete"' if note.complete %>>
+<% @events.each do |event| %>
+  <article>
+    <p> 
+     <h3> <%= event.title %> </h3>
+    </p>
     <p>
-      <%= note.content %>
-      <span><a href="/<%= note.id %>">[edit]</a></span>
+      Descripci&oacuten: <%= event.content %>
     </p>
     <p class="links">
-      <a href="/<%= note.id %>/complete">&#8623;</a>
+      <a href="/<%= event.id %>/complete"><%=  %></a>
     </p>
-    <p class="meta">Created: <%= note.created_at %></p>
+    <p class="meta">Fecha del evento: <%= event.date_event %></p>
+    <p>
+      <a style="color:#FFF;"class="btn btn-lg btn-success" href="/events/<%= event.id %>/invite" >Invitar</a>
+      <a style="color:#FFF;" class="btn btn-lg btn-primary" href="/events/<%= event.id %>">Editar</a>
+    </p>
   </article>
 <% end %>

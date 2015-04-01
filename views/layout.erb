@@ -1,25 +1,72 @@
-<!doctype html>
-<html lang="eng">
-<head>
-	<meta charset="utf8">
-	<title><%= @title + ' | Recall' %></title>
-	<link href="/reset.css" rel="stylesheet">
-	<link href="/style.css" rel="stylesheet">
-</head>
-<body>
-	<header>
-		<hgroup>
-			<h1><a href="/">Recall</a></h1>
-			<h2>'cause you´re too busy to rememeber</h2>
-		</hgroup>
-	</header>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-	<div id="main">
-		<%= yield %>
-	</div>
+    <title><%= @title + '| Eventos VIP '%></title>
 
-	<footer>
-		<p><small>An app for <a href="http://klikaid.com">Klikaid.com</small>
-	</footer>
-</body>
+    <!-- Bootstrap core CSS -->
+  <link href="/reset.css" rel="stylesheet">
+  <link href="/style.css" rel="stylesheet">
+  <link href="/cover.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+  <script>
+  $(function() {
+  $( "#datepicker" ).datepicker();
+  });
+  </script>
+
+
+  </head>
+      <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Proyecto Eventos</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/create">Crear Evento</a></li>
+            <li><a href="/events">Eventos</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <!-- Fixed navbar -->
+
+
+   
+
+  <div id="main">
+    <%= yield %>
+  </div>
+
+  </body>
+
+    <footer>
+    <p><small>An app for <a href="http://devscola.org">@devscola</small>
+  </footer>
 </html>
