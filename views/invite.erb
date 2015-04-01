@@ -1,7 +1,6 @@
 <% if @event %>
 <div class="jumbotron">
 	<form action="/events/<%=  @event.id %>/invite" method="post" id="invite">
-		<input type="hidden" name="_method" value="put">
 		<p>
 		Nombre:
 		<input  type ="text" name="name_invited">

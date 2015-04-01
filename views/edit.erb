@@ -1,7 +1,6 @@
 <% if @event %>
 <div class="jumbotron">
 	<form action="/events/<%=  @event.id %>" method="post" id="edit">
-		<input type="hidden" name="_method" value="put">
 		<p>
 		Evento:
 		<input  type ="text" name="title" value="<%= @event.title %>">

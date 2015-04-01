@@ -36,7 +36,7 @@ erb :index
 
 end
 
-#******************
+#******************EVENTOS*************************
 
 get '/events' do 
 	@events = Event.all :order => :id.desc
@@ -45,6 +45,7 @@ get '/events' do
 end
 
 
+#*****************CREAR**********************
 get '/create' do
 	@title = 'Crear Eventos'
 	erb :create
@@ -70,7 +71,7 @@ get '/events/:id' do
 	erb :edit
 end
 
-put '/events/:id' do
+post '/events/:id' do
   e = Event.get params[:id]
   e.title = params[:title]
   e.date_event = params[:date_event]
@@ -104,16 +105,6 @@ get '/events/:id/invite' do
 end
 
 post '/events/:id/invite' do
-	e = Event.get params[:id]
-	i = Invite.new
-	i.id_event = e.id
-	i.email = params[:email]
-	i.name_invited = params[:name_invited]
-	i.created_at = Time.Now
-	i.save
-end
-
-put '/events/:id/invite' do
 	e = Event.get params[:id]
 	i = Invite.new
 	i.id_event = e.id
